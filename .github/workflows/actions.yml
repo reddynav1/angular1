@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: add node_modules to path
+      run: echo "::add-path::$(npm bin)"
     - name: install dependencies
       run: npm install
     - name: Build project
-      run: ng build --prod
+      run: npx ng build --prod
