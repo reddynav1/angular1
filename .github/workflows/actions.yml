@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: install angular cli
+      run: npm install @angular/cli
     - name: install dependencies
       run: npm install
     - name: Build project
-      run: |
-        export PATH="$(npm bin):$PATH"
-        ng build --prod
+      run: ng build --prod
