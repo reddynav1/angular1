@@ -5,6 +5,21 @@ on: [push]
 jobs:
   build:
     runs-on: self-hosted
+    environment: uat
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: install angular cli
+      run: npm install -g @angular/cli
+    - name: install dependencies
+      run: npm install
+    - name: Build project
+      run: ng build --configuration production
+
+
+jobs:
+  build:
+    runs-on: self-hosted
     environment: production
 
     steps:
